@@ -1,3 +1,18 @@
+////////////////////////DECLARACION DE VARIABLES LET/////////////////////////////////
+const fechaActual = new Date();
+let sesionIniciada = false; // Variable para controlar si la sesión ha sido iniciada
+const cliente = {
+  nombreUsuario: "Leonel Fernandez",
+  usuario: "lfernandez",
+  saldoCuenta: 150000,
+  saldoCuentaDolar: 800,
+  limiteExtraccion: 60000,
+  claveCorrecto: 1234,
+  fechaNacimiento: "1995-12-03",
+  cuentaAmigo1: 1234567,
+  domicilio: "Chile 2529",
+};
+
 ///////////////////////////////API https://www.dolarsi.com/api/api.php?type=valoresprincipales //////////////////
 document.addEventListener("DOMContentLoaded", () => {
   // Muestro los valores del dólar al cargar la página
@@ -95,6 +110,8 @@ contenidoCuenta.innerHTML = "<div class='contenedor'>" +
   "<span id='nombre'></span><br><br>" +
   "<p class='titulo-cuenta' id='titulo-cuenta'></p>" +
   "<h3 id='saldo-cuenta'></h3>" +
+  "<p class='titulo-cuenta-dolar' id='titulo-cuenta-dolar'></p>" +
+  "<h3 id='saldo-cuenta-dolar'></h3>" +
   "<p id='limite-extraccion'></p>" +
   "</div>" +
   "</div>";
@@ -127,9 +144,8 @@ contenidoBotonera.innerHTML =
   "<button class='links' id='cargarDatosCliente'>Mis Datos</button>" +
   "<button class='links' id='actualizarDatosPersonales'>Act. Datos</button>" +
   "<button class='links' id='btnBorrarSession'>Borrar Sesion</button>" +
-  "<button class='links' id='btnBorrarStorage'>Borrar Storage</button>" +
-  "<button class='links' id='btnDolar'>Consultar Dolar</button>";
-
+  "<button class='links' id='btnBorrarStorage'>Borrar Storage</button>";
+  
 let contenidoHistorial = document.getElementById("pantallaHistorial");
 contenidoHistorial.innerHTML = "<ul class='contenedorHistorial' id='historial'>" +
   "<p class='logs'>HISTORIAL MOVIMIENTOS</p>" +
@@ -189,20 +205,6 @@ for (let i = 0; i < buttons.length; i++) {
     }
   });
 }
-
-////////////////////////DECLARACION DE VARIABLES LET/////////////////////////////////
-const fechaActual = new Date();
-let sesionIniciada = false; // Variable para controlar si la sesión ha sido iniciada
-const cliente = {
-  nombreUsuario: "Leonel Fernandez",
-  usuario: "lfernandez",
-  saldoCuenta: 150000,
-  limiteExtraccion: 60000,
-  claveCorrecto: 1234,
-  fechaNacimiento: "1995-12-03",
-  cuentaAmigo1: 1234567,
-  domicilio: "Chile 2529",
-};
 
 ////////////////////////RESTAURAR E INICIO DE SESION/////////////////////////////////////////////
 // Obtén la referencia al botón "Ingresar" por su clase
@@ -1138,7 +1140,10 @@ function restarDinero(dinero) {
 // Actualizar el saldo en pantalla
 function actualizarSaldoEnPantalla() {
   const saldoEnPantalla = document.getElementById("saldo-cuenta");
-  saldoEnPantalla.innerText = "$" + separadorDeMiles(cliente.saldoCuenta);
+  saldoEnPantalla.innerText = "$ " + separadorDeMiles(cliente.saldoCuenta);
+
+  const saldoEnPantallaDolar = document.getElementById("saldo-cuenta-dolar");
+  saldoEnPantallaDolar.innerText = "u$s " + separadorDeMiles(cliente.saldoCuentaDolar);
 }
 
 // Función para obtener el saldo almacenado en el almacenamiento local
@@ -1202,7 +1207,10 @@ function cargarVisual() {
   botonSesion.style.display = "block"; //  Hago visible el botón Eliminar Sesion Storage
 
   let contenidoSaldo = document.getElementById("titulo-cuenta");
-  contenidoSaldo.innerHTML = "Tu Saldo es:";
+  contenidoSaldo.innerHTML = "Saldo en Caja de Ahorro : 3355887/9:";
+
+  let contenidoSaldoDolar = document.getElementById("titulo-cuenta-dolar");
+  contenidoSaldoDolar.innerHTML = "Saldo en Caja de Ahorro en dolar : 3355888/9:";
 
   let contenidoExtraccion = document.getElementById("limite-extraccion");
   contenidoExtraccion.innerHTML = "Tu límite de extracción es:";

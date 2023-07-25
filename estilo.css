@@ -138,7 +138,9 @@ h1 {
     color: #9dc800;
 }
 
-.pantallaInicio,.pantallaBotones, .pantallaDolar  {
+.pantallaInicio,
+.pantallaBotones,
+.pantallaDolar {
     display: flex;
     width: 100%;
     padding: 10px;
@@ -150,7 +152,9 @@ h1 {
 }
 
 
-.pantallaDatos,.pantallaHistorial,.pantallaBanner {
+.pantallaDatos,
+.pantallaHistorial,
+.pantallaBanner {
     display: flex;
     width: 100%;
     padding: 30px;
@@ -160,7 +164,9 @@ h1 {
     justify-content: center;
 }
 
-.contenedorHistorial,.contenedor, .contenedorBanner{
+.contenedorHistorial,
+.contenedor,
+.contenedorBanner {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -199,10 +205,11 @@ h1 {
     text-overflow: ellipsis;
 }
 
-#saldo-cuenta {
-    margin-bottom: 5%;
+#saldo-cuenta,
+#saldo-cuenta-dolar {
+    margin-bottom: 2%;
     overflow: hidden;
-    font-size: 6.5vw;
+    font-size: 4.5vw;
     text-align: center;
     text-overflow: ellipsis;
 }
@@ -212,6 +219,12 @@ h1 {
     font-size: 25px;
     text-overflow: ellipsis;
 }
+
+.titulo-cuenta,
+.titulo-cuenta-dolar {
+    font-size: 25px;
+}
+
 
 /* Estilos para el modal */
 .modal {
@@ -248,42 +261,4 @@ h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.titulo-cuenta {
-    font-size: 25px;
-}
-
-@media only screen and (max-width: 800px) {
-    .pantallaDatos {
-        flex-direction: column-reverse;
-    }
-
-    .pantallaBotones {
-        flex-direction: column-reverse;
-    }
-
-    .contenedor {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    #saldo-cuenta {
-        font-size: 8.5vw;
-    }
-
-    .menu-container {
-        width: 100%;
-    }
-
-    .header {
-        margin-bottom: 10px;
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
 }
