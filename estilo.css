@@ -138,7 +138,7 @@ h1 {
     color: #9dc800;
 }
 
-.pantallaBotones {
+.pantallaInicio,.pantallaBotones, .pantallaDolar  {
     display: flex;
     width: 100%;
     padding: 10px;
@@ -149,18 +149,8 @@ h1 {
     justify-content: center;
 }
 
-.pantallaDolar {
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    margin: 20px auto;
-    box-sizing: border-box;
-    border-radius: 8px;
-    background-color: #424c4d;
-    justify-content: center;
-}
 
-.pantallaDatos {
+.pantallaDatos,.pantallaHistorial,.pantallaBanner {
     display: flex;
     width: 100%;
     padding: 30px;
@@ -170,38 +160,7 @@ h1 {
     justify-content: center;
 }
 
-.pantallaHistorial {
-    display: flex;
-    width: 100%;
-    padding: 30px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    border-radius: 8px;
-    justify-content: center;
-}
-
-.pantallaBanner {
-    display: flex;
-    width: 100%;
-    padding: 30px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    border-radius: 8px;
-    justify-content: center;
-}
-
-.contenedorBanner {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    color: #424c4d;
-    border-radius: 8px;
-    background-color: #DEFF6A;
-    align-items: center;
-}
-
-.contenedorHistorial {
+.contenedorHistorial,.contenedor, .contenedorBanner{
     display: block;
     width: 100%;
     box-sizing: border-box;

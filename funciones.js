@@ -68,7 +68,15 @@ pantallaDatos.style.display = "none";
 let pantallaHistorial = document.getElementById("pantallaHistorial");
 pantallaHistorial.style.display = "none";
 
+let pantallaBotones = document.getElementById("pantallaBotones");
+pantallaBotones.style.display = "none";
+
 ///////////////////////////////ARMADO DE HTML //////////////////
+
+let contenidoInicio = document.getElementById("pantallaInicio");
+contenidoInicio.innerHTML =
+  "<button class='links btn Logueo' id='iniciarSesion'>Iniciar Sesion";
+
 let contenidoBanner = document.getElementById("pantallaBanner");
 contenidoBanner.innerHTML = "<div class='contenedorBanner'>" +
   "<h2>¡Conoce Nuestros Nuevos Servicios!</h2>" +
@@ -110,7 +118,6 @@ contenidoModal.innerHTML = "<div class='modal-content'>" +
 
 let contenidoBotonera = document.getElementById("valores-cuenta");
 contenidoBotonera.innerHTML =
-  "<button class='links btn Logueo' id='iniciarSesion'>Iniciar Sesion" +
   "<button class='links' id='extraerDinero'>Extracción</button>" +
   "<button class='links' id='depositarDinero'>Depositar</button>" +
   "<button class='links' id='pagarServicio'>Servicios</button>" +
@@ -127,6 +134,30 @@ let contenidoHistorial = document.getElementById("pantallaHistorial");
 contenidoHistorial.innerHTML = "<ul class='contenedorHistorial' id='historial'>" +
   "<p class='logs'>HISTORIAL MOVIMIENTOS</p>" +
   "</ul>";
+
+/////////////////////////MODAL//////////////////////////////////
+// Obtener referencias a los elementos del DOM
+let loginButton = document.getElementById("iniciarSesion");
+let loginModal = document.getElementById("loginModal");
+let closeButton = document.getElementsByClassName("close")[0];
+
+// Abrir el modal cuando se hace clic en el botón de inicio de sesión
+loginButton.onclick = function () {
+  loginModal.style.display = "block";
+}
+
+// Cerrar el modal cuando se hace clic en el botón de cerrar (x)
+closeButton.onclick = function () {
+  loginModal.style.display = "none";
+}
+
+//BOTON CERRAR SESION LO ELIMINO SI NO ESTA LOGUEADO
+let botonLocal = document.getElementById("btnBorrarStorage");
+botonLocal.style.display = "none";
+
+let botonSesion = document.getElementById("btnBorrarSession");
+botonSesion.style.display = "none";
+
 
 ///////////////////////TITLE PERSONALIZADO//////////////////////////////////
 
@@ -158,29 +189,6 @@ for (let i = 0; i < buttons.length; i++) {
     }
   });
 }
-
-/////////////////////////MODAL//////////////////////////////////
-// Obtener referencias a los elementos del DOM
-let loginButton = document.getElementById("iniciarSesion");
-let loginModal = document.getElementById("loginModal");
-let closeButton = document.getElementsByClassName("close")[0];
-
-// Abrir el modal cuando se hace clic en el botón de inicio de sesión
-loginButton.onclick = function () {
-  loginModal.style.display = "block";
-}
-
-// Cerrar el modal cuando se hace clic en el botón de cerrar (x)
-closeButton.onclick = function () {
-  loginModal.style.display = "none";
-}
-
-//BOTON CERRAR SESION LO ELIMINO SI NO ESTA LOGUEADO
-let botonLocal = document.getElementById("btnBorrarStorage");
-botonLocal.style.display = "none";
-
-let botonSesion = document.getElementById("btnBorrarSession");
-botonSesion.style.display = "none";
 
 ////////////////////////DECLARACION DE VARIABLES LET/////////////////////////////////
 const fechaActual = new Date();
@@ -1203,6 +1211,9 @@ function cargarVisual() {
   pantallaBanner.style.display = "none";
   pantallaDatos.style.display = "block";
   pantallaHistorial.style.display = "block";
+  pantallaBotones.style.display = "block";
+  pantallaInicio.style.display = "none";
+
 }
 
 const btnBorrarStorage = document.getElementById("btnBorrarStorage");
